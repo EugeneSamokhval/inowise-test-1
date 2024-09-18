@@ -7,9 +7,10 @@ class CalculateExpression {
       '-': { precedence: 2, associativity: 'Left' },
       '*': { precedence: 3, associativity: 'Left' },
       '/': { precedence: 3, associativity: 'Left' },
+      '%': { precedence: 3, associativity: 'Left' },
     }
 
-    const tokens = expression.match(/\d+|\+|\-|\*|\/|\(|\)/g)
+    const tokens = expression.match(/\d+|\%|\+|\-|\*|\/|\(|\)/g)
 
     for (const token of tokens) {
       if (!isNaN(token)) {
@@ -67,6 +68,9 @@ class CalculateExpression {
           case '/':
             stack.push(a / b)
             break
+          case '%':
+            stack.push((a / 100) * b)
+            break
           default:
             throw new Error('Invalid operator')
         }
@@ -84,11 +88,28 @@ class CalculateExpression {
   }
 }
 
+function changeSign(expression) {
+  if (expression.startsWith('-(') && expression.endsWith(')')) {
+    return expression.slice(2, -1)
+  } else if (expression.startsWith('-')) {
+    return '+' + expression.slice(1)
+  } else if (expression.startsWith('+(') && expression.endsWith(')')) {
+    return '-(' + expression.slice(2, -1) + ')'
+  } else if (expression.startsWith('+')) {
+    return '-' + expression.slice(1)
+  } else {
+    return '-(' + expression + ')'
+  }
+}
+
 const numeric_buttons = document.getElementsByClassName('Numeric')
 const operations = document.getElementsByClassName('Operations')
 const textInputField = document.getElementById('inOutField')
+const percent = document.getElementById('btn_percent')
 const delete_button = document.getElementById('clear')
 const solve_button = document.getElementById('btn_equals')
+const reverse_sign = document.getElementById('change_sign')
+
 solve_button.addEventListener('mousedown', () => {
   solution = new CalculateExpression(textInputField.value)
   textInputField.value = solution.getSolved() ? solution.getSolved() : 'ERROR'
@@ -107,3 +128,9 @@ for (let button of operations) {
     if (button.textContent !== '=') textInputField.value += button.textContent
   })
 }
+percent.addEventListener('mousedown', () => {
+  textInputField.value += percent.textContent
+})
+reverse_sign.addEventListener('mousedown', () => {
+  textInputField.value = changeSign(textInputField.value)
+})
