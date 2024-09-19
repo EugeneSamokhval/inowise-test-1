@@ -1,3 +1,5 @@
+import './index.css'
+
 class CalculateExpression {
   infixToRPN(expression) {
     const outputQueue = []
@@ -111,8 +113,13 @@ const solve_button = document.getElementById('btn_equals')
 const reverse_sign = document.getElementById('change_sign')
 
 solve_button.addEventListener('mousedown', () => {
-  solution = new CalculateExpression(textInputField.value)
-  textInputField.value = solution.getSolved() ? solution.getSolved() : 'ERROR'
+  const solution = new CalculateExpression(textInputField.value)
+  const solved = solution.getSolved()
+  if (solved) {
+    textInputField.value = solved
+  } else {
+    textInputField.value = 'ERROR'
+  }
 })
 delete_button.addEventListener('mousedown', () => {
   textInputField.textContent = ''
