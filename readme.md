@@ -16,13 +16,15 @@ Make sure you have the following installed on your machine:
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/your-username/your-repo-name.git
-   cd your-repo-name
+   git clone https://github.com/EugeneSamokhval/inowise-test-1.git
+   cd inowise-test-1
    ```
 
 2. **Install the dependencies**
-   `npm install` 3.**Run development server**
-   `npm run start`
+   `npm install`
+
+3.**Run development server**
+`npm run start`
 
 ## Project Structure
 
@@ -42,6 +44,6 @@ inowise test 1/
 
 ## Built With
 
-Webpack - Module bundler
-ESLint - Linting utility
-Prettier - Code formatter
+- Webpack - Module bundler
+- ESLint - Linting utility
+- Prettier - Code formatter
