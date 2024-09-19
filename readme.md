@@ -23,8 +23,8 @@ Make sure you have the following installed on your machine:
 2. **Install the dependencies**
    `npm install`
 
-3.**Run development server**
-`npm run start`
+3. **Run development server**
+   `npm run start`
 
 ## Project Structure
 
