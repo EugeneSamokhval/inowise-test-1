@@ -20,13 +20,13 @@ Make sure you have the following installed on your machine:
    cd your-repo-name
    ```
 
-2. **Install the dependencies: **
-   `npm install`
-3. **Run development server: **
+2. **Install the dependencies**
+   `npm install` 3.**Run development server**
    `npm run start`
 
 ## Project Structure
 
+```
 inowise test 1/
 ├── dist/
 ├── node_modules/
@@ -38,6 +38,7 @@ inowise test 1/
 ├── package.json
 ├── webpack.config.js
 └── README.md
+```
 
 ## Built With
 
