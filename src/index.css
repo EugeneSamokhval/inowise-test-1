@@ -49,3 +49,18 @@ body {
 .Tools {
   background-color: #e09c4d;
 }
+#LisOfOptions {
+  background-color: rgb(206, 137, 84);
+  border-radius: 15px;
+  border-width: 3px;
+  border-color: #080808;
+  margin-left: 10px;
+  padding: 15px;
+  display: grid;
+  font-size: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  width: 400px;
+}
+label {
+  margin-right: 10px;
+}

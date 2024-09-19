@@ -1,5 +1,5 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js',
@@ -15,10 +15,16 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    fallback: {
+      util: require.resolve('util/'),
+      path: require.resolve('path-browserify'),
+    },
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'index.html',
     }),
   ],
   mode: 'development',
-};
+}

@@ -6,8 +6,9 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./src/index.css">
         <script defer src="bundle.js"></script></head>
-    <body>
+    <body clas="MainBody">
         <div class="Calculator">
         <input type="text" class="numberInputField" id="inOutField">
         <div class="buttonPad">
@@ -33,6 +34,17 @@
             <button class="Button Operations" id="btn_equals">=</button>
         </div>
     </div>
-    <script src="src/index.js"></script>
+    <div class="Theme menu">
+        <div id="LisOfOptions">
+            <label>Background color</label><input type="color" id="backgroundColorInput" class="colorPicker">
+            <label>Borders color</label><input type="color" id="bordersColorInput" class="colorPicker">
+            <label>Numeric buttons color</label><input type="color" id="numericColorInput" class="colorPicker">
+            <label>Operations buttons color</label><input type="color" id="operationsColorInput" class="colorPicker">
+            <label>Tools buttons color</label><input type="color" id="toolsColorInput" class="colorPicker">
+            <label>Font color</label><input type="color" id="buttonsFontColorInput" class="colorPicker">
+            <label>Text input background color</label><input type="color" id="textBackgroundColorInput" class="colorPicker">
+            <label>Font size</label><input type="number" id="fontSize">
+        </div>
+    </div>
     </body>
 </html>

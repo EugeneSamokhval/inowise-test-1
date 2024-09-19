@@ -111,6 +111,7 @@ const percent = document.getElementById('btn_percent')
 const delete_button = document.getElementById('clear')
 const solve_button = document.getElementById('btn_equals')
 const reverse_sign = document.getElementById('change_sign')
+const color_pickers = document.getElementsByClassName('colorPicker')
 
 solve_button.addEventListener('mousedown', () => {
   const solution = new CalculateExpression(textInputField.value)
@@ -141,3 +142,41 @@ percent.addEventListener('mousedown', () => {
 reverse_sign.addEventListener('mousedown', () => {
   textInputField.value = changeSign(textInputField.value)
 })
+for (let picker of color_pickers) {
+  let targets = ''
+  switch (picker.id) {
+    case 'backgroundColorInput':
+      targets = document.getElementsByTagName('body')
+      break
+    case 'bordersColorInput':
+      targets = document.getElementsByClassName('Calculator')
+      break
+    case 'numericColorInput':
+      targets = document.getElementsByClassName('Numeric')
+      break
+    case 'operationsColorInput':
+      targets = document.getElementsByClassName('Operations')
+      break
+    case 'toolsColorInput':
+      targets = document.getElementsByClassName('Tools')
+      break
+    case 'textBackgroundColorInput':
+      targets = document.getElementsByClassName('numberInputField')
+      break
+    default:
+      continue
+  }
+  picker.addEventListener('input', function () {
+    for (let target of targets) {
+      console.log(target, picker, picker.value)
+      target.style.backgroundColor = picker.value
+    }
+  })
+}
+document
+  .getElementById('buttonsFontColorInput')
+  .addEventListener('input', function (event) {
+    document.getElementById('inOutField').style.color = this.value
+    for (let button of document.getElementsByClassName('Button'))
+      button.style.color = this.value
+  })
